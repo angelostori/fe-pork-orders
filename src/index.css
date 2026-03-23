@@ -3,3 +3,9 @@
     height: 200px;
     object-fit: cover;
 }
+
+#card-img-dtls {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
