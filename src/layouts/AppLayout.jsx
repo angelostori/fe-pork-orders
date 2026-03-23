@@ -1,20 +1,17 @@
 import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function AppLayout() {
 
     return (
-        <>
+        <div className="d-flex flex-column vh-100">
             <header>
 
             </header>
             <main>
                 <Outlet />
             </main>
-            <footer class="bg-dark text-light py-4 mt-auto">
-                <div class="container">
-                    <p class="text-center"> © {new Date().getFullYear()} Pork Orders. All rights reserved.</p>
-                </div>
-            </footer>
-        </>
+            <Footer />
+        </div>
     )
 } 
