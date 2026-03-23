@@ -7,7 +7,10 @@ export default function ProductCard({ product }) {
                 <img src={product.image} alt={product.name} />
                 <div className="card-body">
                     <p>{product.description}</p>
-                    <p>€{product.price}</p>
+                    <div className="d-flex justify-content-between">
+                        <p>€{product.price}</p>
+                        <a href={`/products/${product.id}`} className="btn btn-primary">Dettagli</a>
+                    </div>
                 </div>
             </div>
 

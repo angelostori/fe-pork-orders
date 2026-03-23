@@ -5,12 +5,14 @@ import Header from "../components/Header";
 export default function AppLayout() {
 
     return (
-        <div className="d-flex flex-column vh-100">
+        <div className="d-flex flex-column min-vh-100">
 
             <Header />
 
             <main>
-                <Outlet />
+                <div className="container py-4">
+                    <Outlet />
+                </div>
             </main>
 
             <Footer />

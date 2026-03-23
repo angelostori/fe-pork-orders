@@ -13,16 +13,14 @@ export default function Products() {
 
     return (
         <>
-            <div className="container py-4">
-                <h1 className="pb-5">Catalogo</h1>
+            <h1 className="pb-5">Catalogo</h1>
 
-                <div className="row g-4">
-                    {products.map(product => (
-                        <div className="col-md-4" key={product.id}>
-                            <ProductCard product={product} />
-                        </div>
-                    ))}
-                </div>
+            <div className="row g-4">
+                {products.map(product => (
+                    <div className="col-md-4" key={product.id}>
+                        <ProductCard product={product} />
+                    </div>
+                ))}
             </div>
         </>
     )
