@@ -1,28 +1,19 @@
-import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import AppLayout from "./layouts/AppLayout"
+import Home from "./pages/Home"
+import Products from "./pages/Products"
 
 function App() {
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/products")
-      .then(res => res.json())
-      .then(data => setProducts(data));
-  }, []);
-
   return (
-    <>
-      <div>
-        <h1>Prodotti</h1>
-
-        {products.map(product => (
-          <div key={product.id}>
-            <h3>{product.name}</h3>
-            <p>{product.price} €</p>
-          </div>
-        ))}
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/products" element={<Products />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
