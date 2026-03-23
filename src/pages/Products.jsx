@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ProductCard from "../components/ProductCard";
 
 export default function Products() {
 
@@ -12,15 +13,16 @@ export default function Products() {
 
     return (
         <>
-            <div>
-                <h1>Prodotti</h1>
+            <div className="container py-4">
+                <h1 className="pb-5">Catalogo</h1>
 
-                {products.map(product => (
-                    <div key={product.id}>
-                        <h3>{product.name}</h3>
-                        <p>{product.price} €</p>
-                    </div>
-                ))}
+                <div className="row g-4">
+                    {products.map(product => (
+                        <div className="col-md-4" key={product.id}>
+                            <ProductCard product={product} />
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     )
