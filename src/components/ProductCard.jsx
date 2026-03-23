@@ -4,7 +4,7 @@ export default function ProductCard({ product }) {
         <>
             <div className="card">
                 <div className="card-header">{product.name}</div>
-                <img src={product.image} alt={product.name} />
+                <img src={product.image} alt={product.name} id="card-img" />
                 <div className="card-body">
                     <p>{product.description}</p>
                     <div className="d-flex justify-content-between">
