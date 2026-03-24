@@ -11,7 +11,6 @@ export default function Header() {
                             Home
                         </Link>
                         <Link className="nav-item nav-link" to="/products">Prodotti</Link>
-                        <Link className="nav-item nav-link" to="/orders">Ordini</Link>
                     </div>
 
                     <Link className="nav-item nav-link" to="/cart">
