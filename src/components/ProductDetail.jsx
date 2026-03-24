@@ -11,7 +11,7 @@ export default function ProductDetails({ product }) {
                         <p><strong>Prezzo:</strong> €{product.price}</p>
 
                         <div className="d-flex justify-content-between">
-                            <div class="input-group me-2">
+                            <div className="input-group me-2">
                                 <button className="input-group-text bg-dark text-white">
                                     <i className="bi bi-dash"></i>
                                 </button>
