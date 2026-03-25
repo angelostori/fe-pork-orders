@@ -1,4 +1,10 @@
+import { useState } from "react";
+import { useCart } from "../context/CartContext";
+
 export default function ProductDetails({ product }) {
+
+    const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCart();
 
     return (
         <>
@@ -12,21 +18,34 @@ export default function ProductDetails({ product }) {
 
                         <div className="d-flex justify-content-between">
                             <div className="input-group me-2">
-                                <button className="input-group-text bg-dark text-white">
+
+                                <button
+                                    className="input-group-text bg-dark text-white"
+                                    onClick={() => setQuantity(prev => Math.max(1, prev - 1))}>
                                     <i className="bi bi-dash"></i>
                                 </button>
+
                                 <input
                                     type="number"
                                     className="form-control"
                                     min={1}
-                                    value={1}
+                                    value={quantity}
+                                    onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
                                     style={{ maxWidth: "50px" }} />
-                                <button className="input-group-text bg-dark text-white">
+
+                                <button
+                                    className="input-group-text bg-dark text-white"
+                                    onClick={() => setQuantity(prev => prev + 1)}>
                                     <i className="bi bi-plus"></i>
                                 </button>
+
                             </div>
 
-                            <button className="btn btn-primary me-2">Aggiungi</button>
+                            <button
+                                className="btn btn-outline-dark me-2"
+                                onClick={() => addToCart(product, quantity)}>
+                                <i className="bi bi-cart"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
