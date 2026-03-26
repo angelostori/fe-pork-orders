@@ -37,20 +37,19 @@ export default function Cart() {
 
                                         <div className="d-flex align-items-center">
 
-                                            <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                                            <button className="btn btn-sm btn-outline-dark" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
                                                 -
                                             </button>
 
                                             <span className="mx-2">{item.quantity}</span>
 
-                                            <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                                            <button className="btn btn-sm btn-outline-dark" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
                                                 +
                                             </button>
 
                                             <button
                                                 className="btn btn-danger ms-3"
-                                                onClick={() => removeFromCart(item.id)}
-                                            >
+                                                onClick={() => removeFromCart(item.id)}>
                                                 Rimuovi
                                             </button>
 

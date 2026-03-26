@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 export default function Header() {
+    const { cartCount } = useCart();
 
     return (
         <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -15,6 +17,9 @@ export default function Header() {
 
                     <Link className="nav-item nav-link" to="/cart">
                         <i className="bi bi-cart4"></i>
+                        {cartCount > 0 && (
+                            <span className="badge text-bg-danger ms-2">{cartCount}</span>
+                        )}
                     </Link>
                 </div>
             </div>
