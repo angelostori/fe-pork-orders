@@ -18,8 +18,8 @@ export function CartProvider({ children }) {
                         : item
                 );
             }
-            console.log("PREV:", prev);
-            console.log("ADDING:", product);
+            // console.log("PREV:", prev);
+            // console.log("ADDING:", product);
             return [...prev, { ...product, quantity }];
         });
     }

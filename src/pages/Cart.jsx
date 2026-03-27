@@ -2,6 +2,7 @@ import { useData } from "../context/DataContext"
 import { useCart } from "../context/CartContext"
 import { Quantum } from 'ldrs/react'
 import 'ldrs/react/Quantum.css'
+import { Link } from "react-router-dom";
 
 export default function Cart() {
 
@@ -63,9 +64,9 @@ export default function Cart() {
                                 <h3>Totale: €{total}</h3>
                                 <p>Prodotti totali: {cartCount}</p>
 
-                                <button className="btn btn-dark">
+                                <Link to="/checkout" className="btn btn-dark">
                                     Vai al checkout
-                                </button>
+                                </Link>
                             </>
                         )}
                     </>
