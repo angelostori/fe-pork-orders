@@ -3,13 +3,15 @@ import { useCart } from "../context/CartContext"
 
 export default function Checkout() {
     const { cart, total, checkout } = useCart();
+    const [error, setError] = useState("");
 
     const [form, setForm] = useState({
         name: "",
         surname: "",
         email: "",
         phone: "",
-        address: ""
+        address: "",
+        note: ""
     });
 
     const [success, setSuccess] = useState(false);
@@ -20,13 +22,12 @@ export default function Checkout() {
 
     const handleSubmit = async () => {
 
-        // validazione base
         if (!form.name || !form.surname) {
-            <div className="alert alert-danger">
-                Per favore, compila i campi obbligatori (nome e cognome).
-            </div>
+            setError("Per favore, compila i campi obbligatori (nome e cognome).");
             return;
         }
+
+        setError("");
 
         const result = await checkout(form);
 
@@ -47,6 +48,12 @@ export default function Checkout() {
             {success && (
                 <div className="alert alert-success">
                     Ordine completato con successo!
+                </div>
+            )}
+
+            {error && (
+                <div className="alert alert-danger">
+                    {error}
                 </div>
             )}
 
@@ -119,7 +126,7 @@ export default function Checkout() {
                     </div>
 
                     <div className="col-12 text-end">
-                        <button className="btn btn-dark px-4" onClick={handleSubmit}>
+                        <button className="btn btn-dark px-4" type="button" onClick={handleSubmit}>
                             Conferma ordine
                         </button>
                     </div>

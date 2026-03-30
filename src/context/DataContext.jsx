@@ -8,10 +8,12 @@ export function DataProvider({ children }) {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const URL = import.meta.env.VITE_URL;
+
     useEffect(() => {
         Promise.all([
-            fetch("http://127.0.0.1:8000/api/products").then(res => res.json()),
-            fetch("http://127.0.0.1:8000/api/orders").then(res => res.json()),
+            fetch(`${URL}/products`).then(res => res.json()),
+            fetch(`${URL}/orders`).then(res => res.json()),
         ])
             .then(([productsData, ordersData]) => {
                 setProducts(productsData);

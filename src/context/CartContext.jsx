@@ -6,6 +6,8 @@ export function CartProvider({ children }) {
 
     const [cart, setCart] = useState([]);
 
+    const URL = import.meta.env.VITE_URL;
+
     function addToCart(product, quantity) {
         setCart(prev => {
 
@@ -58,7 +60,7 @@ export function CartProvider({ children }) {
             products[item.id] = item.quantity;
         });
 
-        const response = await fetch("http://127.0.0.1:8000/api/orders", {
+        const response = await fetch(`${URL}/orders`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
