@@ -21,7 +21,7 @@ export default function Home() {
                     <p>Ordina in pochi clic, ricevi senza pensieri. PorkOrders rende lo shopping semplice, veloce e affidabile.</p>
                 </div>
             )}
-            <a href="/products" className="btn btn-primary">Lista Prodotti</a>
+            <a href="/products" className="btn btn-dark">Lista Prodotti</a>
         </>
     )
 }
