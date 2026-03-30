@@ -1,14 +1,14 @@
 import { useData } from "../context/DataContext"
 import { Quantum } from 'ldrs/react'
 import 'ldrs/react/Quantum.css'
+import logo from '../assets/logo.svg'
 
 export default function Home() {
 
     const { loading } = useData();
 
     return (
-        <div className="container">
-            <h1>Welcome Page</h1>
+        <>
             {loading ? (
                 <Quantum
                     size="45"
@@ -16,9 +16,12 @@ export default function Home() {
                     color="black"
                 />
             ) : (
-                <p>Benvenuto nel nostro negozio di carne di maiale! Esplora il nostro catalogo per scoprire i nostri prodotti di alta qualità.</p>
+                <div className="p-5 my-5 bg-light rounded shadow-sm">
+                    <img src={logo} alt="Pork Orders Logo" />
+                    <p>Ordina in pochi clic, ricevi senza pensieri. PorkOrders rende lo shopping semplice, veloce e affidabile.</p>
+                </div>
             )}
             <a href="/products" className="btn btn-primary">Lista Prodotti</a>
-        </div>
+        </>
     )
 }

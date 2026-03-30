@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import logo from '../assets/favicon.svg'
 
 export default function Header() {
     const { cartCount } = useCart();
@@ -10,13 +11,18 @@ export default function Header() {
                 <div className="nav navbar-nav d-flex justify-content-between w-100">
                     <div className="d-flex">
                         <Link className="nav-item nav-link active" to="/">
-                            Home
+                            <img src={logo} alt="Pork Orders Logo" style={{ height: "30px" }} />
+                            | HOME
                         </Link>
-                        <Link className="nav-item nav-link" to="/products">Prodotti</Link>
+                        <Link className="nav-item nav-link" to="/products">
+                            <i className="bi bi-bag pe-1" style={{ color: "#e8809a" }}></i>
+                            | PRODOTTI
+                        </Link>
                     </div>
 
                     <Link className="nav-item nav-link" to="/cart">
-                        <i className="bi bi-cart4"></i>
+                        <i className="bi bi-cart4 pe-1" style={{ color: "#e8809a" }}></i>
+                        | CARRELLO
                         {cartCount > 0 && (
                             <span className="badge text-bg-danger ms-2">{cartCount}</span>
                         )}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 160">
+  <circle cx="72" cy="80" r="44" fill="none" stroke="currentColor" stroke-width="3"/>
+
+  <ellipse cx="52" cy="44" rx="10" ry="13" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(-15 52 44)"/>
+  <ellipse cx="92" cy="44" rx="10" ry="13" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(15 92 44)"/>
+
+  <circle cx="60" cy="70" r="3.5" fill="currentColor"/>
+  <circle cx="84" cy="70" r="3.5" fill="currentColor"/>
+
+  <ellipse cx="72" cy="92" rx="14" ry="10" fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <circle cx="67" cy="92" r="3" fill="currentColor"/>
+  <circle cx="77" cy="92" r="3" fill="currentColor"/>
+
+  <line x1="148" y1="28" x2="148" y2="132" stroke="#e0e0e0" stroke-width="1.5"/>
+
+  <text x="172" y="80" dominant-baseline="middle" fill="currentColor" font-size="52" font-weight="700">
+    pork<tspan font-weight="300">orders</tspan>
+  </text>
+</svg>
