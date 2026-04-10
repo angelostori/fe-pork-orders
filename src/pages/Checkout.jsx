@@ -22,8 +22,8 @@ export default function Checkout() {
 
     const handleSubmit = async () => {
 
-        if (!form.name || !form.surname) {
-            setError("Per favore, compila i campi obbligatori (nome e cognome).");
+        if (!form.name || !form.surname || !form.email) {
+            setError("Per favore, compila i campi obbligatori (nome, cognome ed email).");
             return;
         }
 
@@ -77,27 +77,42 @@ export default function Checkout() {
 
                     <div className="col-md-6">
                         <input
+                            name="name"
                             className="form-control"
                             placeholder="Nome"
                             onChange={e => setForm({ ...form, name: e.target.value })}
                         />
+                        <label
+                            htmlFor="name"
+                            className="text-muted"
+                        >(obbligatorio)</label>
                     </div>
 
                     <div className="col-md-6">
                         <input
+                            name="surname"
                             className="form-control"
                             placeholder="Cognome"
                             onChange={e => setForm({ ...form, surname: e.target.value })}
                         />
+                        <label
+                            htmlFor="surname"
+                            className="text-muted"
+                        >(obbligatorio)</label>
                     </div>
 
                     <div className="col-md-6">
                         <input
+                            name="email"
                             className="form-control"
                             placeholder="Email"
                             type="email"
                             onChange={e => setForm({ ...form, email: e.target.value })}
                         />
+                        <label
+                            htmlFor="email"
+                            className="text-muted"
+                        >(obbligatorio)</label>
                     </div>
 
                     <div className="col-md-6">
