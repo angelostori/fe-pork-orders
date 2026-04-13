@@ -4,7 +4,7 @@ export default function ProductCard({ product }) {
 
     return (
         <>
-            <div className="card">
+            <div className="card zoom">
                 <div className="card-header bg-dark text-light">{product.name}</div>
                 <img src={product.image} alt={product.name} id="card-img" />
                 <div className="card-body">
