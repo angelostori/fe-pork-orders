@@ -31,7 +31,7 @@ export default function ProductDetails({ product }) {
                                     min={1}
                                     value={quantity}
                                     onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                                    style={{ maxWidth: "50px" }} />
+                                    style={{ maxWidth: "65px" }} />
 
                                 <button
                                     className="input-group-text bg-dark text-white"

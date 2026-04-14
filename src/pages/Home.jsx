@@ -2,6 +2,7 @@ import { useData } from "../context/DataContext"
 import { Quantum } from 'ldrs/react'
 import 'ldrs/react/Quantum.css'
 import logo from '../assets/logo.svg'
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
@@ -21,7 +22,7 @@ export default function Home() {
                     <p>Ordina in pochi clic, ricevi senza pensieri. PorkOrders rende lo shopping semplice, veloce e affidabile.</p>
                 </div>
             )}
-            <a href="/products" className="btn btn-dark">Lista Prodotti</a>
+            <Link to="/products" className="btn btn-dark">Lista Prodotti</Link>
         </>
     )
 }

@@ -77,7 +77,7 @@ export default function Checkout() {
 
                     <div className="col-md-6">
                         <input
-                            name="name"
+                            id="name"
                             className="form-control"
                             placeholder="Nome"
                             onChange={e => setForm({ ...form, name: e.target.value })}
@@ -90,7 +90,7 @@ export default function Checkout() {
 
                     <div className="col-md-6">
                         <input
-                            name="surname"
+                            id="surname"
                             className="form-control"
                             placeholder="Cognome"
                             onChange={e => setForm({ ...form, surname: e.target.value })}
@@ -103,7 +103,7 @@ export default function Checkout() {
 
                     <div className="col-md-6">
                         <input
-                            name="email"
+                            id="email"
                             className="form-control"
                             placeholder="Email"
                             type="email"
