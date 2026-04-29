@@ -7,6 +7,7 @@ import { DataProvider } from "./context/DataContext"
 import { CartProvider } from "./context/CartContext"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
+import Login from "./pages/Login"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
               <Route path="/products/:id" element={<Details />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/login" element={<Login />} />
             </Route>
           </Routes>
         </BrowserRouter>
