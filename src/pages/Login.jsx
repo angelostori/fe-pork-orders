@@ -1,4 +1,10 @@
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 export default function Login() {
+
+    const { setAuthUser } = useAuth();
+    const navigate = useNavigate();
 
     const login = async (email, password) => {
 
@@ -19,6 +25,8 @@ export default function Login() {
 
         console.log("Utente:", data.client);
 
+        setAuthUser(data.client);
+
         return true;
     };
 
@@ -31,7 +39,7 @@ export default function Login() {
         const success = await login(email, password);
 
         if (success) {
-            alert("Login riuscito");
+            navigate("/");
         } else {
             alert("Credenziali errate");
         }

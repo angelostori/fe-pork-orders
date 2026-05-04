@@ -1,9 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 import logo from '../assets/favicon.svg'
 
 export default function Header() {
     const { cartCount } = useCart();
+    const { user, clearAuthUser } = useAuth();
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        clearAuthUser();
+        navigate("/");
+    }
 
     return (
         <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -18,15 +27,32 @@ export default function Header() {
                             <i className="bi bi-bag pe-1 fs-5" style={{ color: "#e8809a" }}></i>
                             | PRODOTTI
                         </Link>
+                        <Link className="nav-item nav-link" to="/cart">
+                            <i className="bi bi-cart4 pe-1 fs-5" style={{ color: "#e8809a" }}></i>
+                            | CARRELLO
+                            {cartCount > 0 && (
+                                <span className="badge text-bg-danger ms-2">{cartCount}</span>
+                            )}
+                        </Link>
                     </div>
-
-                    <Link className="nav-item nav-link" to="/cart">
-                        <i className="bi bi-cart4 pe-1 fs-5" style={{ color: "#e8809a" }}></i>
-                        | CARRELLO
-                        {cartCount > 0 && (
-                            <span className="badge text-bg-danger ms-2">{cartCount}</span>
+                    <div>
+                        {user ? (
+                            <button
+                                className="nav-item nav-link btn btn-link"
+                                onClick={handleLogout}
+                                style={{ textDecoration: "none" }}
+                            >
+                                <i className="bi bi-box-arrow-right pe-1 fs-5" style={{ color: "#e8809a" }}></i>
+                                | LOGOUT
+                            </button>
+                        ) : (
+                            <Link className="nav-item nav-link" to="/login">
+                                <i className="bi bi-person pe-1 fs-5" style={{ color: "#e8809a" }}></i>
+                                | LOGIN
+                            </Link>
                         )}
-                    </Link>
+
+                    </div>
                 </div>
             </div>
         </nav >
