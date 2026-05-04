@@ -51,7 +51,8 @@ export default function Login() {
                             className="form-control"
                             id="email"
                             required
-                        />                    </div>
+                        />
+                    </div>
                     <div className="mb-3">
                         <label htmlFor="password" className="form-label">Password</label>
                         <input
