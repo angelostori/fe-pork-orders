@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useCart } from "../context/CartContext"
+import { useAuth } from "../context/AuthContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Checkout() {
     const { cart, total, checkout } = useCart();
+    const { user } = useAuth();
+    const navigate = useNavigate();
     const [error, setError] = useState("");
 
     const [form, setForm] = useState({
@@ -15,6 +19,10 @@ export default function Checkout() {
     });
 
     const [success, setSuccess] = useState(false);
+
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
 
     if (cart.length === 0 && !success) {
         return <p>Carrello vuoto</p>;
@@ -80,6 +88,7 @@ export default function Checkout() {
                             id="name"
                             className="form-control"
                             placeholder="Nome"
+                            value={form.name}
                             onChange={e => setForm({ ...form, name: e.target.value })}
                         />
                         <label
@@ -93,6 +102,7 @@ export default function Checkout() {
                             id="surname"
                             className="form-control"
                             placeholder="Cognome"
+                            value={form.surname}
                             onChange={e => setForm({ ...form, surname: e.target.value })}
                         />
                         <label
@@ -107,6 +117,7 @@ export default function Checkout() {
                             className="form-control"
                             placeholder="Email"
                             type="email"
+                            value={form.email}
                             onChange={e => setForm({ ...form, email: e.target.value })}
                         />
                         <label
@@ -119,6 +130,7 @@ export default function Checkout() {
                         <input
                             className="form-control"
                             placeholder="Telefono"
+                            value={form.phone}
                             onChange={e => setForm({ ...form, phone: e.target.value })}
                         />
                     </div>
@@ -127,6 +139,7 @@ export default function Checkout() {
                         <input
                             className="form-control"
                             placeholder="Indirizzo"
+                            value={form.address}
                             onChange={e => setForm({ ...form, address: e.target.value })}
                         />
                     </div>
