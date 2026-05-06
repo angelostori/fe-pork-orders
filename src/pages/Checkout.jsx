@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext"
 import { useAuth } from "../context/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -19,6 +19,20 @@ export default function Checkout() {
     });
 
     const [success, setSuccess] = useState(false);
+
+    // Inizializza il form con i dati dell'utente
+    useEffect(() => {
+        if (user) {
+            setForm({
+                name: user.name || "",
+                surname: user.surname || "",
+                email: user.email || "",
+                phone: user.phone || "",
+                address: user.address || "",
+                note: ""
+            });
+        }
+    }, [user]);
 
     if (!user) {
         return <Navigate to="/login" />;
@@ -89,7 +103,7 @@ export default function Checkout() {
                             className="form-control"
                             placeholder="Nome"
                             value={form.name}
-                            onChange={e => setForm({ ...form, name: e.target.value })}
+                            disabled
                         />
                         <label
                             htmlFor="name"
@@ -103,7 +117,7 @@ export default function Checkout() {
                             className="form-control"
                             placeholder="Cognome"
                             value={form.surname}
-                            onChange={e => setForm({ ...form, surname: e.target.value })}
+                            disabled
                         />
                         <label
                             htmlFor="surname"
@@ -118,7 +132,7 @@ export default function Checkout() {
                             placeholder="Email"
                             type="email"
                             value={form.email}
-                            onChange={e => setForm({ ...form, email: e.target.value })}
+                            disabled
                         />
                         <label
                             htmlFor="email"
@@ -131,7 +145,7 @@ export default function Checkout() {
                             className="form-control"
                             placeholder="Telefono"
                             value={form.phone}
-                            onChange={e => setForm({ ...form, phone: e.target.value })}
+                            disabled
                         />
                     </div>
 
@@ -140,7 +154,7 @@ export default function Checkout() {
                             className="form-control"
                             placeholder="Indirizzo"
                             value={form.address}
-                            onChange={e => setForm({ ...form, address: e.target.value })}
+                            disabled
                         />
                     </div>
 
